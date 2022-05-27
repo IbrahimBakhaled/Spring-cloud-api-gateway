@@ -25,3 +25,13 @@ spring:
                 wiretap: true
             httpserver:
                 wiretap: true
+            globalcors:
+                corsConfigurations:
+                    '[/**]':
+                        allowedOrigins: "http://localhost:4200"
+                        allowedHeaders: "*"
+                        allowedMethods:
+                            - GET
+                            - POST
+                            - PUT
+                            - DELETE
