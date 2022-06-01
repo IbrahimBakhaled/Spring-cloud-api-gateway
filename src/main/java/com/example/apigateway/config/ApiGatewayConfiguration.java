@@ -19,11 +19,14 @@ public class ApiGatewayConfiguration {
   public RouteLocator gatewayRouter(RouteLocatorBuilder builder){
     return builder.routes()
         .route(p -> p.path("/api/v1/**")
-            .uri("lb://relevebancaire"))
+//            .uri("lb://relevebancaire"))
+            .uri("https://localhost:8081"))
         .route( p -> p.path("/api/v3/**")
-            .uri("lb://activiti-workflow"))
+//            .uri("lb://activiti-workflow"))
+            .uri("https://localhost:8083"))
         .route( p -> p.path("/api/v2/**")
-            .uri("lb://mongodb-microservice"))
+//            .uri("lb://mongodb-microservice"))
+            .uri("https://localhost:8082"))
         .build();
   }
 
