@@ -20,13 +20,13 @@ public class ApiGatewayConfiguration {
     return builder.routes()
         .route(p -> p.path("/api/v1/**")
 //            .uri("lb://relevebancaire"))
-            .uri("https://localhost:8081"))
+            .uri("https://relevebancaire:8081"))
         .route( p -> p.path("/api/v3/**")
 //            .uri("lb://activiti-workflow"))
-            .uri("https://localhost:8083"))
+            .uri("https://activiti-workflow:8083"))
         .route( p -> p.path("/api/v2/**")
 //            .uri("lb://mongodb-microservice"))
-            .uri("https://localhost:8082"))
+            .uri("https://mongodb-microservice:8082"))
         .build();
   }
 

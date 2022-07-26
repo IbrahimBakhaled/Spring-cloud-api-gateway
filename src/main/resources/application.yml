@@ -1,12 +1,5 @@
 eureka:
-    instance:
-        hostname: localhost
-        nonSecurePortEnabled: false
-        securePortEnabled: true
-        securePort: 8765
     client:
-        registerWithEureka: true
-        fetchRegistry: true
         serviceUrl:
             defaultZone: https://localhost:8761/eureka
     level:
@@ -22,11 +15,14 @@ server:
     port: 8765
     ssl:
         enabled: true
-        key-alias: relevebancaire
-        key-store: classpath:relevebancaire-keystore.p12
+        key-alias: relevebancaire-docker
+        key-store: classpath:relevebancaire-docker-keystore.p12
         key-store-password: secret
         key-store-type: PKCS12
 spring:
+    sleuth:
+        sampler:
+            probability: 1.0
     application:
         name: api-gateway
     cloud:
@@ -50,17 +46,5 @@ spring:
                             - POST
                             - PUT
                             - DELETE
-
-
-#    OkToRetryOnAllOperations: true
-#    ReadTimeout: 5000000
-#    ConnectTimeout: 5000000
-#    MaxAutoRetries: 3
-#    MaxAutoRetriesNextServer: 3
-#    CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
-#    IsHostnameValidationRequired: false
-#    TrustStore: classpath:relevebancaire-keystore.p12
-#    TrustStorePassword : secret
 ribbon:
     secure-ports: 8081,8082,8083,8765,8761
-
